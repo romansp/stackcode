@@ -16,13 +16,10 @@ namespace stackcode.Controllers
 
         [HttpGet]
         [Route("/")]
-        public async Task<IActionResult> Index()
+        public async Task<string> Index()
         {
-            var stackCodes = await _stackCodesService.GetStackCodesAsync();
-            return View(new IndexModel
-            {
-                StackCodes = stackCodes
-            });
+            var stackCodes = await _stackCodesService.GetStackCodesStringAsync();
+            return stackCodes;
         }
     }
 }

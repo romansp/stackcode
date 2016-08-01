@@ -34,7 +34,7 @@ namespace stackcode
             services.AddMvc();
 
             services.AddOptions();
-            services.Configure<AppSettings>(options => Configuration.GetSection("AppSettings").Bind(options));
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddScoped<IStackCodesService, TwitterStackCodesService>();
         }
@@ -44,6 +44,11 @@ namespace stackcode
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
             app.UseMvc();
         }
