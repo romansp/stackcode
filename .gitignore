@@ -243,3 +243,10 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# Client-side libraries
+/src/*/wwwroot/lib
+
+# Minified files
+*.min.js
+*.min.css

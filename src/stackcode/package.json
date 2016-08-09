@@ -1,0 +1,8 @@
+{
+	"version": "1.0.0",
+	"name": "stackcode",
+	"private": true,
+  "devDependencies": {
+    "bower":  "1.7.9"
+  }
+}
