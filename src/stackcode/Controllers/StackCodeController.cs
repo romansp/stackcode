@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using stackcode.Models.Twitter;
 using stackcode.Services;
 using stackcode.Views.StackCode;
 
@@ -16,7 +18,7 @@ namespace stackcode.Controllers
 
         [HttpGet]
         [Route("/")]
-        public async Task<string> Index()
+        public async Task<Status[]> Index()
         {
             var stackCodes = await _stackCodesService.GetStackCodesStringAsync();
             return stackCodes;

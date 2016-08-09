@@ -9,6 +9,8 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using stackcode.Models;
+using stackcode.Models.Twitter;
+using stackcode.Models.Twitter.Responses;
 
 namespace stackcode.Services
 {
@@ -25,15 +27,15 @@ namespace stackcode.Services
 
         protected Task<string> TwitterAccessToken => GetTwitterAccessTokenAsync();
 
-        public async Task<string> GetStackCodesStringAsync()
+        public async Task<Status[]> GetStackCodesStringAsync()
         {
             var query = WebUtility.UrlEncode("#StackCode from:nick_craver");
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await TwitterAccessToken);
             var responseString = await httpClient.GetStringAsync($"https://api.twitter.com/1.1/search/tweets.json?q={query}");
 
-            //var tweets = JsonConvert.DeserializeObject<StackCode[]>(responseString);
-            return responseString;
+            var searchResponse = JsonConvert.DeserializeObject<TwitterSearchResponse>(responseString);
+            return searchResponse.Statuses;
         }
 
         private async Task<string> GetTwitterAccessTokenAsync()
