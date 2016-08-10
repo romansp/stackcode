@@ -1,0 +1,6 @@
+concurrency:
+  slug: concurrency
+  name: Concurrency
+deadlock:
+  slug: deadlock
+  name: Deadlock
