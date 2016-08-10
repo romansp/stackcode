@@ -8,7 +8,7 @@
 # Site settings
 title: '#StackCode - A daily screenshot from the Stack Overflow codebase'
 description: 'A daily screenshot from the Stack Overflow codebase from Nick Craver.'
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/stackcode" # the subpath of your site, e.g. /blog
 url: "http://romansp.github.com/stackcode" # the base hostname & protocol for your site
 twitter_username: rpvlv
 github_username:  romansp
