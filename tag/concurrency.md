@@ -1,5 +1,5 @@
 ---
 layout: codes_by_tag
 tag: concurrency
-permalink: /tag/deadlock/
+permalink: /tag/concurrency/
 ---

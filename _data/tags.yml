@@ -1,6 +1,12 @@
+comments:
+  slug: comments
+  name: Comments
 concurrency:
   slug: concurrency
   name: Concurrency
 deadlock:
   slug: deadlock
   name: Deadlock
+linq2sql:
+  slug: linq2sql
+  name: Linq2SQL
