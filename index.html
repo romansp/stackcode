@@ -7,6 +7,7 @@ layout: default
   {% for post in site.posts %}
       <div class="post">
         {{ post.content }}
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">meta</a>
       </div>
   {% endfor %}
 
