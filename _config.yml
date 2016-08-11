@@ -2,6 +2,9 @@ title: '#StackCode'
 description: 'A daily screenshot from the Stack Overflow codebase from Nick Craver.'
 baseurl: "/stackcode" # the subpath of your site, e.g. /blog
 url: "http://romansp.github.com/stackcode" # the base hostname & protocol for your site
+repository: romansp/stackcode
 
+
+permalink: /:categories/:year/:month/:day/:title/
 # Build settings
 markdown: kramdown
