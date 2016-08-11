@@ -199,8 +199,6 @@
     color: $grey-color;
 }
 
-
-
 /**
  * Posts
  */
@@ -244,4 +242,9 @@
             font-size: 18px;
         }
     }
+}
+
+.tags{
+    font-size: $small-font-size;
+    color: $grey-color;
 }

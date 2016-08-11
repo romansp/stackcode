@@ -3,12 +3,19 @@ layout: default
 ---
 
 <h1>Codes tagged '{{ page.tag }}'</h1>
-<div>
-    {% if site.tags[page.tag] %}
-        {% for post in site.tags[page.tag] %}
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+
+{% if site.tags[page.tag] %}
+<ul class="post-list">
+  {% for post in site.tags[page.tag] %}
+      <li class="post">
+        {{ post.content }}
+        <p class="tags">
+            tags:
+        {% for tag in post.tags %}
+            <a class="tag" href="{{site.baseurl}}/tag/{{ tag }}">{{ tag }}</a>
         {% endfor %}
-    {% else %}
-        <p>There are no codes for this tag.</p>
-    {% endif %}
-</div>
+        </p>
+      </li>
+  {% endfor %}
+</ul>
+{% endif %}

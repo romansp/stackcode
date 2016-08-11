@@ -4,11 +4,19 @@ layout: default
 
 <div class="home">
 
-  {% for post in site.posts %}
-      <div class="post">
+<ul class="post-list">
+ {% for post in site.posts %}
+      <li class="post">
         {{ post.content }}
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">meta</a>
-      </div>
+        <p class="tags">
+          tags:
+        {% for tag in post.tags %}
+            <a class="tag" href="{{site.baseurl}}/tag/{{ tag }}">{{ tag }}</a>
+        {% endfor %}
+        </p>
+      </li>
   {% endfor %}
+</ul>
+ 
 
 </div>
