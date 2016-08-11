@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title:  "A deadlock encountered, found, and fixed yesterday"
 date:   2016-08-10 10:33:00 +0000
 tags: ["deadlock", "concurrency"]
