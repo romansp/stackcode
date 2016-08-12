@@ -13,7 +13,7 @@
 .site-title {
     font-size: 26px;
     font-weight: 300;
-    line-height: 56px;
+    line-height: 40px;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
@@ -24,9 +24,16 @@
     }
 }
 
+.site-sub-title {
+    width: 100%;    
+    float: left; 
+    letter-spacing: -1px;
+    color: $grey-color;
+}
+
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: 40px;
 
     .menu-icon {
         display: none;
