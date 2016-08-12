@@ -10,3 +10,6 @@ deadlock:
 linq2sql:
   slug: linq2sql
   name: Linq2SQL
+naming-is-hard:
+  slug: naming-is-hard
+  name: Naming is hard
