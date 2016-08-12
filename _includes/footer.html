@@ -2,11 +2,12 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title }}</h2>
+    <h2 class="footer-heading">{{ site.title }} <p class="footer-paragraph">a daily screenshot from the Stack Overflow codebase from {% include icon-twitter.html username="Nick_Craver" %}</p></h2>
 
     <div>
-        <p class="footer-paragraph">A daily screenshot from the Stack Overflow codebase from {% include icon-twitter.html username="Nick_Craver" %}.</p>
+        
         <p class="footer-paragraph rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+        <p class="footer-paragraph"><a href="{{ site.github.repository_url }}">source</a> </p>
     </div>
  
   </div>
