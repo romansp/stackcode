@@ -5,7 +5,7 @@ layout: default
 <div class="home">
 
 <ul class="post-list">
- {% for post in site.posts limit: 10 %}
+ {% for post in site.posts %}
       <li class="post">
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         {{ post.content }}
@@ -18,7 +18,5 @@ layout: default
       </li>
   {% endfor %}
 </ul>
- 
- <a href="{{site.baseurl}}/all">all #StackCode</a>
 
 </div>

@@ -186,6 +186,11 @@
 
     > li {
         margin-bottom: $spacing-unit;
+        border-bottom: 1px solid $grey-color-light;
+
+        &:last-child{
+            border: none;
+        }
     }
 }
 
