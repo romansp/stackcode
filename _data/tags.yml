@@ -1,15 +1,24 @@
 comments:
   slug: comments
-  name: Comments
+  name: comments
 concurrency:
   slug: concurrency
-  name: Concurrency
+  name: concurrency
 deadlock:
   slug: deadlock
-  name: Deadlock
+  name: deadlock
+lambda:
+  slug: lambda
+  name: lambda
+Lazy<T>:
+  slug: lazy-of-t
+  name: Lazy<T>
 linq2sql:
   slug: linq2sql
   name: Linq2SQL
+memory-allocation:
+  slug: memory-allocation
+  name: memory allocation
 naming-is-hard:
   slug: naming-is-hard
-  name: Naming is hard
+  name: naming is hard
