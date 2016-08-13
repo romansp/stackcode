@@ -1,0 +1,5 @@
+tags:
+{% for tag in include.tags %}
+    <a class="tag" href="{{site.baseurl}}/tag/{{ site.data.tags[tag].slug }}">{{ site.data.tags[tag].name | xml_escape }}</a>    
+{% endfor %}
+

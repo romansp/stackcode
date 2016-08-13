@@ -28,6 +28,6 @@ The following part removes dulpicated tags and invalid tags like blank tag.
 	{% endif %}
 {% endfor %}
 
-{% for tag in tags %}
-    <a class="tag" href="{{site.baseurl}}/tag/{{ tag }}">{{ tag }}</a>
-{% endfor %}
+<p class="tags">
+	{% include tags.html tags=tags %}
+</p>
