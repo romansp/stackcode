@@ -1,5 +1,5 @@
 ---
 layout: codes_by_tag
-tag: Lazy<T>
+tag: Lazy-of-T
 permalink: /tag/lazy-of-t/
 ---

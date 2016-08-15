@@ -1,5 +1,5 @@
 ---
 layout: codes_by_tag
-tag: linq2sql
+tag: Linq2SQL
 permalink: /tag/linq2sql/
 ---

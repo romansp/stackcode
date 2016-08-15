@@ -1,5 +1,5 @@
 ---
 layout: codes_by_tag
-tag: sql
+tag: SQL
 permalink: /tag/sql/
 ---

@@ -2,7 +2,7 @@
 layout: post
 title:  "removing this Lazy<T> saved 6GB of RAM per server"
 date:   2016-08-13 12:05:06 +0000
-tags: ["Lazy<T>", "lambda", "memory-allocation"]
+tags: ["Lazy-of-T", "lambda", "memory-allocation"]
 tweet: https://twitter.com/Nick_Craver/status/764432587733491712
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Linq2SQL crazy and the 2AM comments it produces…"
 date:   2016-08-11 11:01:00 +0000
-tags: ["comments", "linq2sql"]
+tags: ["comments", "Linq2SQL"]
 tweet: https://twitter.com/Nick_Craver/status/763691710375493633
 ---
 

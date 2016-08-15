@@ -19,10 +19,10 @@ foreign-key:
 lambda:
   slug: lambda
   name: lambda
-Lazy<T>:
+Lazy-of-T:
   slug: lazy-of-t
   name: Lazy<T>
-linq2sql:
+Linq2SQL:
   slug: linq2sql
   name: Linq2SQL
 memory-allocation:
@@ -37,6 +37,6 @@ optimization:
 performance:
   slug: performance
   name: performance
-sql:
+SQL:
   slug: sql
   name: SQL
