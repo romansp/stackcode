@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<h1>Codes tagged '{{ page.tag }}'</h1>
+<h1>#StackCode tagged with '{{ site.data.tags[page.tag].name | xml_escape }}'</h1>
 
 {% if site.tags[page.tag] %}
 <ul class="post-list">
