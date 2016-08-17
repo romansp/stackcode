@@ -1,6 +1,6 @@
 # contains all tags, that are used in StackCodes
 # those are later referenced to build URLs and lists in 'codes_by_tag'' and 'all tags' views.
-# please, keep these entries in alphabet order, use files in '/tag' as a reference
+# please, keep these entries in alphabet order for easy by eye lookup :) (use files in '/tag' as a reference)
 comments:
   slug: comments
   name: comments
@@ -16,6 +16,9 @@ deadlock:
 foreign-key:
   slug: foreign-key
   name: foreign key
+hardware:
+  slug: hardware
+  name: hardware
 lambda:
   slug: lambda
   name: lambda
