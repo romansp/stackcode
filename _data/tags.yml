@@ -37,6 +37,9 @@ naming-is-hard:
 optimization:
   slug: optimization
   name: optimization
+ordering:
+  slug: ordering
+  name: ordering
 performance:
   slug: performance
   name: performance
