@@ -13,9 +13,15 @@ dapper:
 deadlock:
   slug: deadlock
   name: deadlock
+debugging:
+  slug: debugging
+  name: debugging
 foreign-key:
   slug: foreign-key
   name: foreign key
+gist-included:
+  slug: gist-included
+  name: gist included
 hardware:
   slug: hardware
   name: hardware
@@ -40,6 +46,9 @@ optimization:
 ordering:
   slug: ordering
   name: ordering
+ORM:
+  slug: orm
+  name: ORM
 performance:
   slug: performance
   name: performance
