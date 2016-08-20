@@ -7,7 +7,7 @@ namespace stackcode.Serialization
     {
         public TwitterDateTimeConverter()
         {
-            DateTimeFormat = "ddd MMM dd hh:mm:ss K yyyy";
+            DateTimeFormat = "ddd MMM dd HH:mm:ss K yyyy";
             DateTimeStyles = DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal;
             Culture = CultureInfo.InvariantCulture;
         }
