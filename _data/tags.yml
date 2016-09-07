@@ -53,7 +53,7 @@ performance:
   slug: performance
   name: performance
 Razor:
-  slug: performance
+  slug: razor
   name: Razor
 SQL:
   slug: sql
