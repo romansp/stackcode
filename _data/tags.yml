@@ -52,6 +52,9 @@ ORM:
 performance:
   slug: performance
   name: performance
+Razor:
+  slug: performance
+  name: Razor
 SQL:
   slug: sql
   name: SQL
