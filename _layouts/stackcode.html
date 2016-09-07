@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+
+<blockquote class="twitter-tweet">
+<p lang="en" dir="ltr">
+{{ page.text }}
+
+<a href="https://t.co/{{ page.thumbnailhandle }}">pic.twitter.com/{{ page.thumbnailhandle }}</a>
+</p>&mdash; {{ page.name }} (@{{ page.twitterhandle }}) 
+<a href="{{ page.tweet }}">{{ page.date | date: '%B %d, %Y' }}</a></blockquote>
+
+{{ content }}
+
+<p class="tags">
+    {% include tags.html tags=page.tags %}
+</p>
