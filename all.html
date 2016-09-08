@@ -11,6 +11,7 @@ layout: default
       <li class="post">
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         {% include stackcode-tweet.html tweet=post %}
+        {{ post.content }}
       </li>
   {% endfor %}
 </ul>
