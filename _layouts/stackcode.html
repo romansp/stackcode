@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+<h1 itemprop="name headline">{{ page.title }}</h1>
+
+{% include stackcode-tweet.html tweet=page %}
+
+{{ content }}
+<p class="tags">
+    {% include tags.html tags=page.tags %}
+</p>

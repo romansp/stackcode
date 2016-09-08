@@ -7,6 +7,8 @@ layout: default
 <ul class="post-list">
   {% for post in site.tags[page.tag] %}
       <li class="post">
+        <a class="post-meta" href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%b %-d, %Y" }}</a>
+        {% include stackcode-tweet.html tweet=post %}
         {{ post.content }}
         <p class="tags">
             {% include tags.html tags=post.tags %}
