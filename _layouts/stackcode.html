@@ -7,4 +7,6 @@ layout: default
 {% include stackcode-tweet.html tweet=page %}
 
 {{ content }}
-
+<p class="tags">
+    {% include tags.html tags=page.tags %}
+</p>

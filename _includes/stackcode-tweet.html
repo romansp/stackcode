@@ -3,7 +3,3 @@
     &mdash; {{include.tweet.name }} (@{{ include.tweet.twitterhandle }}) 
     <a href="{{ include.tweet.tweet }}">{{ include.tweet.date | date: '%B %d, %Y' }}</a>
 </blockquote>
-
-<p class="tags">
-    {% include tags.html tags=include.tweet.tags %}
-</p>
