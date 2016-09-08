@@ -1,0 +1,9 @@
+<blockquote class="twitter-tweet">
+    <p lang="en" dir="ltr">{{ include.tweet.text }} <a href="https://t.co/{{ include.tweet.thumbnailhandle }}">pic.twitter.com/{{ include.tweet.thumbnailhandle }}</a></p>
+    &mdash; {{include.tweet.name }} (@{{ include.tweet.twitterhandle }}) 
+    <a href="{{ include.tweet.tweet }}">{{ include.tweet.date | date: '%B %d, %Y' }}</a>
+</blockquote>
+
+<p class="tags">
+    {% include tags.html tags=include.tweet.tags %}
+</p>

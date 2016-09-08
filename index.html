@@ -10,10 +10,7 @@ layout: default
  {% for post in site.posts limit: 10 %}
       <li class="post">
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        {{ post.content }}
-        <p class="tags">
-            {% include tags.html tags=post.tags %}
-        </p>
+        {% include stackcode-tweet.html tweet=post %}
       </li>
   {% endfor %}
 </ul>
