@@ -6,6 +6,7 @@ namespace stackcode.Services
 {
     public interface IStackCodesService
     {
-        Task<Status[]> GetStackCodesStringAsync();
+        Task<Status[]> GetStackCodesFromSearchAsync();
+        Task<Status[]> GetStackCodesFromTimelineAsync(long? maxId = null);
     }
 }

@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using stackcode.Models;
 using stackcode.Models.Twitter;
 using stackcode.Models.Twitter.Responses;
+using System.Linq;
 
 namespace stackcode.Services
 {
@@ -27,7 +28,7 @@ namespace stackcode.Services
 
         protected Task<string> TwitterAccessToken => GetTwitterAccessTokenAsync();
 
-        public async Task<Status[]> GetStackCodesStringAsync()
+        public async Task<Status[]> GetStackCodesFromSearchAsync()
         {
             var query = WebUtility.UrlEncode("#StackCode from:nick_craver");
             var httpClient = new HttpClient();
@@ -36,6 +37,45 @@ namespace stackcode.Services
 
             var searchResponse = JsonConvert.DeserializeObject<TwitterSearchResponse>(responseString);
             return searchResponse.Statuses;
+        }
+
+        public async Task<Status[]> GetStackCodesFromTimelineAsync(long? maxId = null)
+        {
+            var result = new List<Status>();
+
+            var nickCraverId = 95030839;
+            var firstStackCodeTweetId = 717292620175826946;
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await TwitterAccessToken);
+            var templateUrl = $"https://api.twitter.com/1.1/statuses/user_timeline.json?user_id={nickCraverId}&since_id={firstStackCodeTweetId}";
+
+            var url = templateUrl;
+            if (maxId != null)
+            {
+                url = url + $"&max_id={maxId}";
+            }
+            
+            while (result.Count < 20)
+            {
+                var responseString = await httpClient.GetStringAsync(url);
+                var statuses = JsonConvert.DeserializeObject<Status[]>(responseString);
+
+                foreach (var status in statuses)
+                {
+                    if (status.Entities.Hashtags.Any(c => c.Text == "StackCode") && status.Entities?.Media?.Any() != null)
+                    {
+                        result.Add(status);
+                    }
+                }
+
+                var lastStatus = statuses.OrderBy(d => d.Id).FirstOrDefault();
+                if (lastStatus != null)
+                {
+                    url = templateUrl + $"&max_id={lastStatus.Id}";
+                }
+            }
+
+            return result.ToArray();
         }
 
         private async Task<string> GetTwitterAccessTokenAsync()

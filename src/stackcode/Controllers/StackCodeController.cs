@@ -17,10 +17,10 @@ namespace stackcode.Controllers
         }
 
         [HttpGet]
-        [Route("/")]
-        public async Task<IActionResult> Index()
+        [Route("{maxId:long?}")]
+        public async Task<IActionResult> Index(long? maxId = null)
         {
-            var stackCodes = await _stackCodesService.GetStackCodesStringAsync();
+            var stackCodes = await _stackCodesService.GetStackCodesFromTimelineAsync(maxId);
             return View(stackCodes);
         }
     }
