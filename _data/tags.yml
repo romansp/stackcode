@@ -40,6 +40,9 @@ memory-allocation:
 naming-is-hard:
   slug: naming-is-hard
   name: naming is hard
+not-mapped:
+  slug: not-mapped
+  name: not mapped
 optimization:
   slug: optimization
   name: optimization
