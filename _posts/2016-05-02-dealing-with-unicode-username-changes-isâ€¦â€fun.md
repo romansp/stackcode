@@ -1,0 +1,11 @@
+---
+layout: stackcode
+name: Nick Craver
+twitterhandle: Nick_Craver
+title: "Dealing with unicode username changes isâ€¦â€fun"."
+text: "Dealing with unicode username changes isâ€¦â€fun"."
+thumbnailhandle: kpOFQMAC3p
+tweet: https://twitter.com/Nick_Craver/status/727080949557637120
+date: 2016-05-02 13:23:01+0000
+tags: ["not-mapped"]
+---

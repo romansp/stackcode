@@ -1,0 +1,11 @@
+---
+layout: stackcode
+name: Nick Craver
+twitterhandle: Nick_Craver
+title: "More info on every page for developers."
+text: "More info on every page for developers."
+thumbnailhandle: 1reRQrSvHg
+tweet: https://twitter.com/Nick_Craver/status/761885447060586496
+date: 2016-08-06 14:23:40+0000
+tags: ["not-mapped"]
+---

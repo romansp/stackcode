@@ -1,0 +1,11 @@
+---
+layout: stackcode
+name: Nick Craver
+twitterhandle: Nick_Craver
+title: "Mobile API spin-up code."
+text: "Mobile API spin-up code."
+thumbnailhandle: jiZVm2PHyb
+tweet: https://twitter.com/Nick_Craver/status/752123073055354881
+date: 2016-07-10 15:51:29+0000
+tags: ["not-mapped"]
+---
