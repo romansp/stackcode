@@ -2,7 +2,7 @@
 layout: stackcode
 name: Nick Craver
 twitterhandle: Nick_Craver
-title: Dealing with unicode username changes is "fun".
+title: Dealing with unicode username changes is "fun".
 text: A daily screenshot from the Stack Overflow codebase (dealing with unicode username changes is "fun").
 thumbnailhandle: kpOFQMAC3p
 tweet: https://twitter.com/Nick_Craver/status/727080949557637120
