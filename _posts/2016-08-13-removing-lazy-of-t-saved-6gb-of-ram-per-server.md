@@ -2,7 +2,7 @@
 layout: stackcode
 name: Nick Craver
 twitterhandle: Nick_Craver
-title:  "removing this Lazy<T> saved 6GB of RAM per server"
+title:  "Removing this Lazy<T> saved 6GB of RAM per server"
 text: A daily screenshot from the Stack Overflow codebase (removing this Lazy&lt;T&gt; saved 6GB of RAM per server).
 thumbnailhandle: osspvbT2DI
 tweet: https://twitter.com/Nick_Craver/status/764432587733491712
