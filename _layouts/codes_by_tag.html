@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<h1>#StackCode tagged with '{{ site.data.tags[page.tag].name | xml_escape }}'</h1>
+
+{% if site.tags[page.tag] %}
+<ul class="post-list">
+  {% for post in site.tags[page.tag] %}
+      <li class="post">
+        <a class="post-meta" href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%b %-d, %Y" }}</a>
+        {% include stackcode-tweet.html tweet=post %}
+        {{ post.content }}
+        <p class="tags">
+            {% include tags.html tags=post.tags %}
+        </p>
+      </li>
+  {% endfor %}
+</ul>
+{% endif %}
