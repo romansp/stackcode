@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Fizzler.Systems.HtmlAgilityPack;
+using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.RegularExpressions;
-using HtmlAgilityPack;
-using Fizzler.Systems.HtmlAgilityPack;
 using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
 using System.Net;
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace parse_stackcode
 {
@@ -15,10 +15,7 @@ namespace parse_stackcode
     {
         static async Task Main(string[] args)
         {
-            using var tagsFile = File.OpenRead("tags.json");
-            var tagLookup = await JsonSerializer.DeserializeAsync<Dictionary<string, List<string>>>(tagsFile);
-
-            List<StackCode> stackCodes = ParseStackCodes("stackcode-dump.html", tagLookup);
+            var stackCodes = await ParseStackCodesAsync();
 
             if (stackCodes.Any())
             {
@@ -27,57 +24,60 @@ namespace parse_stackcode
             }
         }
 
-        private static List<StackCode> ParseStackCodes(string path, Dictionary<string, List<string>> tagLookup)
+        private static async Task<List<StackCode>> ParseStackCodesAsync()
         {
+            using var tweetsDump = File.OpenRead("stackcode-dump.html");
+            using var tagsFile = File.OpenRead("tags.json");
+            var tagLookup = await JsonSerializer.DeserializeAsync<StackCodeTags>(tagsFile, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+
             var preTitle = "A daily screenshot from the Stack Overflow codebase";
             var titleRegex = new Regex(@"((A daily screenshot from the Stack Overflow codebase \((.+)\).+)#StackCode)");
             var stackCodes = new List<StackCode>();
-            using (var file = File.OpenRead(path))
+
+            var document = new HtmlDocument();
+            document.Load(tweetsDump);
+            var page = document.DocumentNode;
+            var tweets = page.QuerySelectorAll("li.stream-item");
+
+            foreach (var tweet in tweets)
             {
-                var document = new HtmlDocument();
-                document.Load(file);
-                var page = document.DocumentNode;
-                var tweets = page.QuerySelectorAll("li.stream-item");
-                foreach (var tweet in tweets)
+                var timeNode = tweet.QuerySelector(".time");
+                var tweetTextNode = tweet.QuerySelector(".tweet-text");
+                var tweetId = tweet.Attributes["data-item-id"].Value;
+
+                var tweetText = tweetTextNode.InnerText;
+                if (tweetText.Contains(preTitle))
                 {
-                    var timeNode = tweet.QuerySelector(".time");
-                    var tweetTextNode = tweet.QuerySelector(".tweet-text");
-                    var tweetId = tweet.Attributes["data-item-id"].Value;
+                    var timestampNode = timeNode.QuerySelector("._timestamp");
+                    var timestamp = timestampNode.Attributes["data-time"].Value;
 
-                    var tweetText = tweetTextNode.InnerText;
-                    if (tweetText.Contains(preTitle))
+                    var titleMatch = titleRegex.Match(tweetText);
+                    var text = WebUtility.HtmlDecode(titleMatch.Groups[2].Value);
+                    var title = WebUtility.HtmlDecode(titleMatch.Groups[3].Value);
+                    title = FirstLetterToUpper(title);
+
+                    var thumbnailNode = tweetTextNode.QuerySelector(".twitter-timeline-link");
+                    var thumbnailhandle = thumbnailNode.InnerText.Split('/')[1];
+
+                    stackCodes.Add(new StackCode
                     {
-                        var timestampNode = timeNode.QuerySelector("._timestamp");
-                        var timestamp = timestampNode.Attributes["data-time"].Value;
-
-                        var titleMatch = titleRegex.Match(tweetText);
-                        var text = WebUtility.HtmlDecode(titleMatch.Groups[2].Value);
-                        var title = WebUtility.HtmlDecode(titleMatch.Groups[3].Value);
-                        title = FirstLetterToUpper(title);
-
-                        var thumbnailNode = tweetTextNode.QuerySelector(".twitter-timeline-link");
-                        var thumbnailhandle = thumbnailNode.InnerText.Split('/')[1];
-
-                        stackCodes.Add(new StackCode
-                        {
-                            Layout = "stackcode",
-                            Name = "Nick Craver",
-                            TwitterHandle = "Nick_Craver",
-                            Title = title,
-                            Text = text,
-                            ThumbnailHandle = thumbnailhandle,
-                            Tweet = $"https://twitter.com/Nick_Craver/status/{tweetId}",
-                            Date = UnixTimeStampToDateTime(double.Parse(timestamp)),
-                            Tags = BuildTags(tweetId, tweetText, tagLookup)
-                        });
-                    }
+                        Layout = "stackcode",
+                        Name = "Nick Craver",
+                        TwitterHandle = "Nick_Craver",
+                        Title = title,
+                        Text = text,
+                        ThumbnailHandle = thumbnailhandle,
+                        Tweet = $"https://twitter.com/Nick_Craver/status/{tweetId}",
+                        Date = UnixTimeStampToDateTime(double.Parse(timestamp)),
+                        Tags = BuildTags(tweetId, tagLookup.TweetsToTags)
+                    });
                 }
             }
 
             return stackCodes;
         }
 
-        private static IEnumerable<string> BuildTags(string tweetId, string tweetText, Dictionary<string, List<string>> tagLookup)
+        private static IEnumerable<string> BuildTags(string tweetId, Dictionary<string, List<string>> tagLookup)
         {
             return tagLookup.TryGetValue(tweetId, out var tags) ? tags : new[] { "not-mapped" };
         }
@@ -86,14 +86,19 @@ namespace parse_stackcode
         {
             foreach (var stackCode in stackCodes)
             {
-                var safeForFilenameTitle = GetSafeFilename(NormalizeTitle(stackCode));
+                var normalizedTitle = NormalizeTitle(stackCode);
 
-                var fileName = Path.Combine(outputDirectory.FullName, $"{stackCode.Date:yyyy-MM-dd}-{safeForFilenameTitle}.md");
+                if (!string.IsNullOrEmpty(normalizedTitle)) {
+                    normalizedTitle = $"-{normalizedTitle}";
+                }
+
+                var fileName = Path.Combine(outputDirectory.FullName, $"{stackCode.Date:yyyy-MM-dd}{normalizedTitle}.md");
+
                 var contents = $@"---
 layout: {stackCode.Layout}
 name: {stackCode.Name}
 twitterhandle: {stackCode.TwitterHandle}
-title: ""{stackCode.Title}.""
+title: ""{(string.IsNullOrEmpty(stackCode.Title) ? string.Empty : stackCode.Title)}""
 text: ""{stackCode.Text}""
 thumbnailhandle: {stackCode.ThumbnailHandle}
 tweet: {stackCode.Tweet}
@@ -108,9 +113,15 @@ tags: {JsonSerializer.Serialize(stackCode.Tags)}
         private static string NormalizeTitle(StackCode stackCode)
         {
             var lowercase = stackCode.Title.ToLowerInvariant();
-            return lowercase
+            var replaced = lowercase
                 .Replace(" ", "-")
-                .Replace(",", string.Empty);
+                .Replace(",", string.Empty)
+                .Replace("'", string.Empty)
+                .Replace("’", string.Empty)
+                .Replace("“", string.Empty)
+                .Replace("”", string.Empty)
+                ;
+            return GetSafeFilename(replaced);
         }
 
         public static string GetSafeFilename(string filename)

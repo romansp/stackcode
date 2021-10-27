@@ -2,10 +2,10 @@
 layout: stackcode
 name: Nick Craver
 twitterhandle: Nick_Craver
-title: "Checking HTTPS behind a multi-proxy load balancer."
+title: "Checking HTTPS behind a multi-proxy load balancer"
 text: "A daily screenshot from the Stack Overflow codebase (checking HTTPS behind a multi-proxy load balancer). "
 thumbnailhandle: a1p3HzHtso
 tweet: https://twitter.com/Nick_Craver/status/760419521844875264
-date: 2016-08-02 13:18:36+0000
+date: 2016-08-02 10:18:36+0000
 tags: ["not-mapped"]
 ---
