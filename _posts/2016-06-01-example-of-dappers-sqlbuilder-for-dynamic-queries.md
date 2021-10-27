@@ -1,11 +1,13 @@
 ---
 layout: stackcode
 name: Nick Craver
-twitterhandle: Nick_Craver
-title: "Example of Dapper’s SqlBuilder for dynamic queries"
-text: "A daily screenshot from the Stack Overflow codebase (example of Dapper’s SqlBuilder for dynamic queries). "
-thumbnailhandle: 8vwQdLGXSW
+twitterHandle: Nick_Craver
+title: Example of Dapper’s SqlBuilder for dynamic queries
+text: 'A daily screenshot from the Stack Overflow codebase (example of Dapper’s SqlBuilder for dynamic queries). '
+thumbnailHandle: 8vwQdLGXSW
 tweet: https://twitter.com/Nick_Craver/status/737954048159031297
-date: 2016-06-01 10:28:50+0000
-tags: ["not-mapped"]
+date: 2016-06-01T10:28:50.0000000Z
+tags:
+  - not-mapped
+
 ---

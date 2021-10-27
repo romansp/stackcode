@@ -1,11 +1,13 @@
 ---
 layout: stackcode
 name: Nick Craver
-twitterhandle: Nick_Craver
-title: "Using Dapper multi-map for multiple-object queries"
-text: "A daily screenshot from the Stack Overflow codebase (using Dapper multi-map for multiple-object queries). "
-thumbnailhandle: togjOP4Xg1
+twitterHandle: Nick_Craver
+title: Using Dapper multi-map for multiple-object queries
+text: 'A daily screenshot from the Stack Overflow codebase (using Dapper multi-map for multiple-object queries). '
+thumbnailHandle: togjOP4Xg1
 tweet: https://twitter.com/Nick_Craver/status/726384848936550401
-date: 2016-04-30 12:16:58+0000
-tags: ["not-mapped"]
+date: 2016-04-30T12:16:58.0000000Z
+tags:
+  - not-mapped
+
 ---

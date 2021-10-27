@@ -8,6 +8,8 @@ using System.Net;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace parse_stackcode
 {
@@ -84,6 +86,11 @@ namespace parse_stackcode
 
         private static void WriteStackCodes(List<StackCode> stackCodes, DirectoryInfo outputDirectory)
         {
+            var serializer = new SerializerBuilder()
+                .WithNamingConvention(CamelCaseNamingConvention.Instance)
+                .WithIndentedSequences()
+                .Build();
+
             foreach (var stackCode in stackCodes)
             {
                 var normalizedTitle = NormalizeTitle(stackCode);
@@ -94,16 +101,10 @@ namespace parse_stackcode
 
                 var fileName = Path.Combine(outputDirectory.FullName, $"{stackCode.Date:yyyy-MM-dd}{normalizedTitle}.md");
 
-                var contents = $@"---
-layout: {stackCode.Layout}
-name: {stackCode.Name}
-twitterhandle: {stackCode.TwitterHandle}
-title: ""{(string.IsNullOrEmpty(stackCode.Title) ? string.Empty : stackCode.Title)}""
-text: ""{stackCode.Text}""
-thumbnailhandle: {stackCode.ThumbnailHandle}
-tweet: {stackCode.Tweet}
-date: {stackCode.Date:yyyy-MM-dd HH:mm:ss+0000}
-tags: {JsonSerializer.Serialize(stackCode.Tags)}
+                var yaml = serializer.Serialize(stackCode);
+                var contents = 
+$@"---
+{yaml}
 ---
 ";
                 File.WriteAllText(fileName, contents);
