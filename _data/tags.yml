@@ -28,10 +28,10 @@ hardware:
 lambda:
   slug: lambda
   name: lambda
-Lazy-of-T:
+lazy-of-t:
   slug: lazy-of-t
   name: Lazy<T>
-Linq2SQL:
+linq2sql:
   slug: linq2sql
   name: Linq2SQL
 memory-allocation:
@@ -49,15 +49,15 @@ optimization:
 ordering:
   slug: ordering
   name: ordering
-ORM:
+orm:
   slug: orm
   name: ORM
 performance:
   slug: performance
   name: performance
-Razor:
+razor:
   slug: razor
   name: Razor
-SQL:
+sql:
   slug: sql
   name: SQL
