@@ -21,7 +21,7 @@
 title: '#StackCode'
 description: 'A daily screenshot from the Stack Overflow codebase from Nick Craver.'
 baseurl: "/stackcode" # the subpath of your site, e.g. /blog
-url: "http://paulau.dev/stackcode" # the base hostname & protocol for your site
+url: "https://paulau.dev/stackcode" # the base hostname & protocol for your site
 repository: romansp/stackcode
 
 # Build settings
