@@ -1,11 +1,13 @@
 ---
 layout: stackcode
 name: Nick Craver
-twitterhandle: Nick_Craver
-title: "Mobile API spin-up code."
-text: "A daily screenshot from the Stack Overflow codebase (Mobile API spin-up code). "
-thumbnailhandle: jiZVm2PHyb
+twitterHandle: Nick_Craver
+title: Mobile API spin-up code
+text: 'A daily screenshot from the Stack Overflow codebase (Mobile API spin-up code). '
+thumbnailHandle: jiZVm2PHyb
 tweet: https://twitter.com/Nick_Craver/status/752123073055354881
-date: 2016-07-10 15:51:29+0000
-tags: ["not-mapped"]
+date: 2016-07-10T12:51:29.0000000Z
+tags:
+  - not-mapped
+
 ---

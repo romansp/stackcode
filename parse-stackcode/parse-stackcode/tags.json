@@ -1,3 +1,36 @@
 ﻿{
-  "764432587733491712": ["lazy-of-t", "lambda", "memory-allocation"]
+  "allTags": [
+    "comments",
+    "concurrency",
+    "dapper",
+    "deadlock",
+    "debugging",
+    "foreign-key",
+    "gist-included",
+    "hardware",
+    "lambda",
+    "lazy-of-t",
+    "linq2sql",
+    "memory-allocation",
+    "naming-is-hard",
+    "not-mapped",
+    "optimization",
+    "ordering",
+    "orm",
+    "performance",
+    "razor",
+    "sql"
+  ],
+  "tweetsToTags": {
+    "763322361504464896": [ "deadlock", "concurrency" ],
+    "763691710375493633": [ "comments", "Linq2SQL" ],
+    "764077711795036160": [ "comments", "naming-is-hard" ],
+    "764432587733491712": [ "lazy-of-t", "lambda", "memory-allocation" ],
+    "764776050559770624": [ "performance", "optimization", "sql", "foreign-key", "dapper" ],
+    "765856225141596160": [ "performance", "optimization", "hardware" ],
+    "766222299330646020": [ "performance", "sql", "ordering" ],
+    "766280023028432896": [ "sql", "orm", "debugging", "dapper", "gist-included" ],
+    "773477967150317569": [ "memory-allocation", "performance", "razor" ],
+    "773840142649925632": [ "dapper", "sql" ]
+  }
 }
